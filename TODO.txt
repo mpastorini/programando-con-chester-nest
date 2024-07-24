@@ -1,0 +1,19 @@
+24 JULIO CLASE 2:
+
+Homework:
+Crear un controlador con post,  get y patch.
+
+Esteban: Entidad Pizza
+Campos: 
+id int,
+name: string,
+ingredients: array<string>
+
+Carlos: Entidad Ingredient
+  
+id int
+name string
+price int
+ (editado)
+
+Enviar mensaje a Carlos Arteaga, Mauur
