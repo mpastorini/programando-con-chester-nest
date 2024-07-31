@@ -24,6 +24,7 @@ const user2 = {
 const users = [user1, user2];
 
 @Controller('users')
+//ARRANCA LA CLASE
 export class UsersController {
   @Get()
   findAll(@Query() query: any): Array<Object> {
@@ -32,6 +33,7 @@ export class UsersController {
     return filteredUsers;
   }
 
+  hola = users.splice;
   // @Post decorators
   @Post()
   create(@Body() body: any) {

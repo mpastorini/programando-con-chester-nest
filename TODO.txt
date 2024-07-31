@@ -16,4 +16,4 @@ name string
 price int
  (editado)
 
-Enviar mensaje a Carlos Arteaga, Mauur
+
