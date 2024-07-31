@@ -1,3 +1,4 @@
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 24 JULIO CLASE 2:
 
 Homework:
@@ -16,4 +17,41 @@ name string
 price int
  (editado)
 
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+31 JULIO CLASE 3:
+
+Proyecto de una api en NEST, se tiene que organizar de cierta manera, por ejemplo pizzeria, transacciones, proveedores, ventas, empleandos, por eso el uso de carpetas,
+para ver esto, ESTE FRAMEWORK SON DE UN PATRON DE TIPO PROVIDER,
+
+NPM => manejador de paquetes de node, es el encargado de las librerias instalacion update esto compara node_modules vs el package.json 
+
+ los  @ => son los DECORATOR, es algo que va a condicionar la clase o funcion que va directamente abajo,
+
+CLASES => se utiliza con los principios solid, se puede modularizar y podes extender de otras clases para poder reutilizar el codigo, por ejemplo clase perros tiene una funcion
+que es ladrar, puedo crear dos firulais y tobi de la clase perro compartirian la misma funcion ladrar entonces existirai tobi.ladrar, firulais.ladrar porque ambos son 
+de la clase perro
+
+Un provider es un modo de logica clase, te permite hacer interacciones con otras partes del sistema tuyo,
+
+    REPOSITORY: la clase de donde vas a sacar la data, manipula la data, EJ podes traer los datos de varios lugares como BD, un archivo interior o de otra API
+La funcion es abstraer la logica del codigo, con esto le damos una estructura de modulos, asi evitando escribir varios
+
+    CONTROLER:
+    @Controller('ejemplo') sirve para pegarle a un endpoint lo vincula nest de esa manera, en 'ejemplo' hace referencia al enpoint de manera local seria 
+http://localhost:3333/ejemplo 
+
+
+
+DECORATORS ENDPOINTS:
+
+Ver mas buscando CRUD sus siglas significan:(Create, Read, Update, Delete)
+    Con estas acciones podemos armar un backend funcional
+        @Get: Trae cosas, seria la parte de READ
+        @Post: Envia cosas, seria la parte de CREATE
+        @Patch: updatea cosas, seria la parte de UPDATE
+        @Delete: borra cosas, redundatemente es la parte del DELETE
+
+
+HOMEWORKS:
+    Añadir un docker.compose para empaquetar la aplicacion agregar maria.db crear unas tablas para probar el endpoint, ver un controller,
