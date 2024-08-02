@@ -52,6 +52,26 @@ Ver mas buscando CRUD sus siglas significan:(Create, Read, Update, Delete)
         @Patch: updatea cosas, seria la parte de UPDATE
         @Delete: borra cosas, redundatemente es la parte del DELETE
 
+En el ultimo commit se agrego docker-compose en el cual se empaqueta toda la aplicacion para evitar problemas de compatibilidad y que sea multiplataforma, donde se configura todo lo necesario para iniciar un servicio
+de mariadb
+
+ES IMPORTANTE, contar con docker instalado y andando en la pc y docker compose,
+Hay que levantar el container con el siguiente comando => docker-compose up --build
+                Para saber si tu docker esta en linea  => docker ps 
+                Otra cosa importante a ver es el echo que yo lance el contenedor al puerto localhost: 3306, chequear que este libre porque puede dar error,
+
+con esto buscamos en las imagenes de docker para que no tengamos problemas de compatibilidad, tanto mauro como yo programamos en linux por ejemplo y carlos programa en windows, gracias a esto podemos asegurar que los 
+3 vamos a tener configurada de la misma manera la imagen de la DB cargada en el contenedor de docker, mantiene la persistencia de datos del contenedor, cuando se baja y vuelve a subir seria volatil sino
+
 
 HOMEWORKS:
-    Añadir un docker.compose para empaquetar la aplicacion agregar maria.db crear unas tablas para probar el endpoint, ver un controller,
+    Añadir un docker.compose para empaquetar la aplicacion agregar maria.db crear unas tablas para probar el endpoint, ver un Controller
+
+
+Despues de haber echo la configuracion de docker compose se tiene que conectar a la db, en este caso se opto por typeorm, el cual lo brinda nestJs para integrar bases de datos tanto SQL como NoSQL, la base que vamos a utilizar es de tipo SQL, typeorm es un Objet Relational Mapping que en pocas palabras nos permite convertir los objetos de la aplicacion a un formato adecuado,
+
+en este caso se modificaron los imports del app.module.ts agregando mi configuracion (revisarla por si tira error seguramente es por eso tambien) proximamente voy a cargar tablas y dejarlas listas para probar en implementaciones,
+voy a configurar seguramente una migracion de datos que no es mas que cargar los datos en un archivo para que cuando se levante la aplicacion este disponibles en el backend,
+
+
+
