@@ -6,7 +6,7 @@ import { UsersController } from './user.controller';
 import { PizzaModule } from './modules/pizza/pizza.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Pizza } from './modules/pizza/pizza.entity';
-
+import { PizzaService } from './modules/pizza/pizza.service';
 
 @Module({
   imports: [
@@ -19,8 +19,10 @@ import { Pizza } from './modules/pizza/pizza.entity';
       database: 'pizza',
       entities: [Pizza],
       synchronize: true,
-    }), PizzaModule],
+    }),
+    PizzaModule,
+  ],
   controllers: [AppController, PizzasController, UsersController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
