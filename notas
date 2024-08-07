@@ -1,0 +1,29 @@
+http://localhost:3333/users   // localHost
+
+
+
+
+// Codigo se encuentra en SRC
+
+
+// GIT
+git checkout .
+git status
+
+importante :  // Siempre que abris el proyecto hacer pull  y npm install 
+
+npm start            //  inicializa la api    Abrir la carpeta del prouyecto Nest api
+npm run start:dev    // Inicializa la api y se actualiza cuando  cambias un archivo
+npm install 
+
+// Package json
+cuando se instala una libreria  se guarda su nombre y version en la propiedad dependencys del archivo package json
+cuando hacemos NMP install node instala todas las librerias que estan mencionadas en la propiedad dependencys del archivo package json
+
+//hice el controller pero no veo en los logs 
+cada vez que se realiza un controler debe ser importado en el archivo app.module.ts
+
+// para probar get o  post  : se puede abrir directamente desde thunder y no desde el explorer
+
+HOMEWORK
+
