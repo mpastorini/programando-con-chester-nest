@@ -56,6 +56,7 @@ En el ultimo commit se agrego docker-compose en el cual se empaqueta toda la apl
 de mariadb
 
 ES IMPORTANTE, contar con docker instalado y andando en la pc y docker compose,
+para levantar el docker es necesario utilizar el comando docker-compose up -d
 Hay que levantar el container con el siguiente comando => docker-compose up --build
                 Para saber si tu docker esta en linea  => docker ps 
                 Otra cosa importante a ver es el echo que yo lance el contenedor al puerto localhost: 3306, chequear que este libre porque puede dar error,
@@ -74,4 +75,22 @@ en este caso se modificaron los imports del app.module.ts agregando mi configura
 voy a configurar seguramente una migracion de datos que no es mas que cargar los datos en un archivo para que cuando se levante la aplicacion este disponibles en el backend,
 
 
+7/8 HOMEWORKS
 
+Leer sobre inyeccion de dependencias,
+
+levantar docker, ver docker-compose y docker ps
+
+hacer commit, push y pull.
+
+Carloncho, añadir metodos @Patch, crear una entity de la tabla ingredients y una de pizza_ingredients que va a tener id, pizza_id y ingredient_id, poner todo en ingles
+todo el tiempo, probar todo
+
+
+DARK__
+
+1. Termino toda la entidad con todos los metodos, getAll, getOne, delete, update, create.
+
+2. Veo migraciones con typeOrm y seeders.
+
+3. Servicio generico que, reciba una entidad y lo deje listo para usarse.

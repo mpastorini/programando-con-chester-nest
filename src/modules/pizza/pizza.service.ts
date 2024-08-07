@@ -7,19 +7,18 @@ import { Pizza } from './pizza.entity';
 export class PizzaService {
   constructor(
     @InjectRepository(Pizza)
-    private readonly pizzaRepository: Repository<Pizza>
+    private readonly pizzaRepository: Repository<Pizza> // el pizzaRepository es el decorator que permite manipular la tabla,
   ) {}
 
-  async findOneById(id: number): Promise<Pizza> {
+  findOneById(id: number): Promise<Pizza> {
     return this.pizzaRepository.findOneBy({ id });
   }
 
-  async createPizza(newPizza: Pizza): Promise<Pizza> {
+  createPizza(newPizza: Pizza): Promise<Pizza> {
     return this.pizzaRepository.save(newPizza);
   }
 
-  async deletePizza(id: number): Promise<void> {
-    const pizza = await this.findOneById(id);
-    await this.pizzaRepository.remove(pizza);
+  deletePizza(id: number): any {
+    return this.pizzaRepository.delete(id);
   }
 }
