@@ -9,7 +9,7 @@ import {
   Patch,
   Param,
 } from '@nestjs/common';
-import { query, Request } from 'express';
+
 
 const user1 = {
   id: 1,
@@ -23,20 +23,32 @@ const user2 = {
 };
 const users = [user1, user2];
 
-@Controller('users')
-//ARRANCA LA CLASE
+@Controller('users') // DECORATOR ES ALGO QUE VA A ACONDICIONAR LA CLASE O FUNCION QUE TENGA ABAJO
+
 export class UsersController {
   @Get()
   findAll(@Query() query: any): Array<Object> {
-    const filterByName = (user) => user.name === query.name;
-    const filteredUsers = query.name ? users.filter(filterByName) : users;
+    //const filterByName = (user) => user.name === query.name;
+
+    const filterByName2 = function (user) {
+      return user.name === query.name;
+    }
+
+    let filteredUsers   //= query.name ? users.filter(filterByName2) : users;
+    if (query.name) {
+      filteredUsers = users.filter(filterByName2)
+
+    } else {
+      filteredUsers = users
+    }
+
     return filteredUsers;
   }
 
   hola = users.splice;
   // @Post decorators
-  @Post()
-  create(@Body() body: any) {
+  @Post()  // EL METODO POST ES UN METODO DEL PROTOCOLO HTTP QUE CREA 
+  create(@Body() body: any): String {
     users.push(body);
 
     return 'la persona se creo correctamente';
