@@ -13,9 +13,12 @@ import {
 import { Request } from 'express';
 import { Pizza } from 'src/modules/pizza/pizza.entity';
 import pizzasList from './pizzasList';
+import { PizzaService } from '../modules/pizza/pizza.service';
 
 @Controller('pizzas')
 export class PizzasController {
+  constructor(private readonly pizzaService: PizzaService) {}
+
   @Get()
   async findAll(@Query() query: any): Promise<Partial<Pizza>[]> {
     const filterMethod = (pizza: Pizza) => pizza.name === query.name;
@@ -42,11 +45,18 @@ export class PizzasController {
     }
   }
   @Delete(':id')
-  async deletePizza(@Param('id') id) {
-    const findById = (pizza) => pizza.id === parseInt(id);
-    const pizzaIndex = pizzasList.findIndex(findById);
-    pizzasList.splice(pizzaIndex, 1);
-
-    return 'pizza erased';
+  async remove(@Param('id') id: string) {
+    try {
+      await this.pizzaService.deletePizza(+id);
+      return {
+        success: true,
+        message: 'pizza deleted successfully',
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message: error.message,
+      };
+    }
   }
 }
