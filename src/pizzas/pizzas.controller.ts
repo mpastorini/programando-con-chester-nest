@@ -20,12 +20,8 @@ export class PizzasController {
   constructor(private readonly pizzaService: PizzaService) {}
 
   @Get()
-  async findAll(@Query() query: any): Promise<Partial<Pizza>[]> {
-    const filterMethod = (pizza: Pizza) => pizza.name === query.name;
-    const pizzaFiltered = query.name
-      ? pizzasList.filter(filterMethod)
-      : pizzasList;
-    return pizzaFiltered;
+  async findAll(): Promise<Partial<Pizza>[]> {
+    return this.pizzaService.findAll();
   }
   @Post()
   async create(@Body() body: any) {

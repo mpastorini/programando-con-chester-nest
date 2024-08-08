@@ -12,10 +12,17 @@ export class PizzaService {
 
   findOneById(id: number): Promise<Pizza> {
     return this.pizzaRepository.findOneBy({ id });
+  } 
+  findAll(){
+    return this.pizzaRepository.find();
   }
 
   createPizza(newPizza: Pizza): Promise<Pizza> {
     return this.pizzaRepository.save(newPizza);
+  }
+
+  updatePizza( updPizza: Pizza, id:string): Promise<any> {
+    return this.pizzaRepository.update(+id, updPizza); 
   }
 
   deletePizza(id: number): any {
