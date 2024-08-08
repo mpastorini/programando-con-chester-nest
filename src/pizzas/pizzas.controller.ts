@@ -25,8 +25,7 @@ export class PizzasController {
   }
   @Post()
   async create(@Body() body: any) {
-    pizzasList.push(body);
-    return 'la pizza se creo correctamente';
+    return this.pizzaService.createPizza(body);
   }
   @Patch(':id')
   async update(@Param('id') id, @Body() body: any) {
