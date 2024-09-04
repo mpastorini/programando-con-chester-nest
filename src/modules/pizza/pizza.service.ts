@@ -2,30 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Pizza } from './pizza.entity';
+import { BaseService } from '../base-service/base.service';
 
 @Injectable()
-export class PizzaService {
+export class PizzaService extends BaseService<Pizza> {
   constructor(
     @InjectRepository(Pizza)
-    private readonly pizzaRepository: Repository<Pizza> // el pizzaRepository es el decorator que permite manipular la tabla,
-  ) {}
-
-  findOneById(id: number): Promise<Pizza> {
-    return this.pizzaRepository.findOneBy({ id });
-  } 
-  findAll(){
-    return this.pizzaRepository.find();
-  }
-
-  createPizza(newPizza: Pizza): Promise<Pizza> {
-    return this.pizzaRepository.save(newPizza);
-  }
-
-  updatePizza( updPizza: Pizza, id:string): Promise<any> {
-    return this.pizzaRepository.update(+id, updPizza); 
-  }
-
-  deletePizza(id: number): any {
-    return this.pizzaRepository.delete(id);
+    private readonly pizzaRepository: Repository<Pizza>
+  ) {
+    super(pizzaRepository);
   }
 }

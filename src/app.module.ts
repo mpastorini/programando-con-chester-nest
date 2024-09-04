@@ -7,6 +7,7 @@ import { PizzaModule } from './modules/pizza/pizza.module';
 import { IngredientsController } from './ingredients/ingredients.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Pizza } from './modules/pizza/pizza.entity';
+import { BaseService } from './modules/base-service/base.service';
 
 @Module({
   imports: [

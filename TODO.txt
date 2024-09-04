@@ -94,3 +94,11 @@ DARK__
 2. Veo migraciones con typeOrm y seeders.
 
 3. Servicio generico que, reciba una entidad y lo deje listo para usarse.
+
+
+Revisar Swagger, Open API, endpoint de las pizzas, contoller base para extenderlos de los demas, endpoint de loggin, guarde la password, =>JWT, para loggear,
+VALIDATION en techniques, pizza => que no pase .caca, manejo de responses,
+
+https://docs.nestjs.com/techniques/validation
+
+https://docs.nestjs.com/openapi/introduction
