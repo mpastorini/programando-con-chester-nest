@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { PizzasController } from './pizzas/pizzas.controller';
+import { PizzasController } from './modules/pizza/pizzas.controller';
 import { UsersController } from './user.controller';
 import { PizzaModule } from './modules/pizza/pizza.module';
-import { IngredientsController } from './ingredients/ingredients.controller';
+import { IngredientsController } from './modules/ingredients/ingredients.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Pizza } from './modules/pizza/pizza.entity';
-import { BaseService } from './modules/base-service/base.service';
+import { LoginModule } from './modules/login/login.module';
 
 @Module({
   imports: [
@@ -23,6 +23,7 @@ import { BaseService } from './modules/base-service/base.service';
       migrations: ['src/migrations/.ts'],
     }),
     PizzaModule,
+    LoginModule,
   ],
   controllers: [
     AppController,
