@@ -2,12 +2,12 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PizzasController } from './modules/pizza/pizzas.controller';
-import { UsersController } from './user.controller';
 import { PizzaModule } from './modules/pizza/pizza.module';
 import { IngredientsController } from './modules/ingredients/ingredients.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Pizza } from './modules/pizza/pizza.entity';
-import { LoginModule } from './modules/login/login.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
@@ -23,14 +23,10 @@ import { LoginModule } from './modules/login/login.module';
       migrations: ['src/migrations/.ts'],
     }),
     PizzaModule,
-    LoginModule,
+    AuthModule,
+    UsersModule,
   ],
-  controllers: [
-    AppController,
-    PizzasController,
-    UsersController,
-    IngredientsController,
-  ],
+  controllers: [AppController, PizzasController, IngredientsController],
   providers: [AppService],
 })
 export class AppModule {}
