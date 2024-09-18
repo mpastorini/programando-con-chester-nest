@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Pizza } from './modules/pizza/pizza.entity';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
+import { User } from './modules/users/user.entity';
 
 @Module({
   imports: [
@@ -18,8 +19,8 @@ import { UsersModule } from './modules/users/users.module';
       username: 'esteban',
       password: 'qwe123',
       database: 'pizza',
-      entities: [Pizza],
-      synchronize: false,
+      entities: [Pizza, User],
+      synchronize: true,
       migrations: ['src/migrations/.ts'],
     }),
     PizzaModule,
