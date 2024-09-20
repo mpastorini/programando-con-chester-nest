@@ -8,6 +8,7 @@ import {
   Body,
 } from '@nestjs/common';
 import { BaseService } from './base.service';
+import { ApiBody } from '@nestjs/swagger';
 
 @Controller()
 export class BaseController<T> {
@@ -39,7 +40,7 @@ export class BaseController<T> {
       await this.baseService.remove(+id);
       return {
         success: true,
-        message: 'pizza deleted successfully',
+        message: 'deleted successfully',
       };
     } catch (error) {
       return {

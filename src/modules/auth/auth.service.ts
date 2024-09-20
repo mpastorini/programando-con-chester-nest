@@ -3,7 +3,6 @@ import { UsersService } from '../users/users.service';
 import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from './create-user.dto';
 import { User } from '../users/user.entity';
-import { create } from 'domain';
 
 @Injectable()
 export class AuthService {

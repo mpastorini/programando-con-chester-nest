@@ -14,10 +14,9 @@ async function bootstrap() {
   );
 
   const config = new DocumentBuilder()
-    .setTitle('Endpoint BD')
-    .setDescription('The pizzas de maurexx API description')
+    .setTitle('Pizzas DB nest whit Chester')
+    .setDescription('The pizzas API description')
     .setVersion('1.0')
-    .addTag('endpoints')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
