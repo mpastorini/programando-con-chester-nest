@@ -27,7 +27,18 @@ describe('UsersService', () => {
     service = module.get<UsersService>(UsersService);
   });
 
+  
   it('should be defined', () => {
     expect(service).toBeDefined();
+  });
+  it("should create a valid user", () => {
+    const mockUser:User = {
+      id:1,
+      username: "testuser",
+      email:"a@a.a",
+      password:"admin"
+    }
+    expect(mockUser).toBeDefined();
+    expect(mockUser.username).toEqual("testuser");
   });
 });
