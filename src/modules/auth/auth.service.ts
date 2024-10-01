@@ -3,10 +3,14 @@ import { UsersService } from '../users/users.service';
 import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from './create-user.dto';
 import { User } from '../users/user.entity';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private usersService: UsersService,
+    private jwtService: JwtService
+  ) {}
 
   async singUp(createUserDto: CreateUserDto): Promise<User> {
     const { username, password, email } = createUserDto;
@@ -20,14 +24,17 @@ export class AuthService {
     return newUser;
   }
 
-  async singIn(username: string, pass: string): Promise<any> {
+  async singIn(
+    username: string,
+    pass: string
+  ): Promise<{ acces_token: string }> {
     const user = await this.usersService.findOne(username);
     if (!user || !(await bcrypt.compare(pass, user.password))) {
       throw new UnauthorizedException('Invalid credentials');
     }
     //here desestruct a pass because the user not need show this
-    const { password, ...result } = user;
+    const payload = { sub: user.id, username: user.username };
 
-    return result;
+    return { acces_token: await this.jwtService.signAsync(payload) };
   }
 }

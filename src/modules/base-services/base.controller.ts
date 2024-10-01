@@ -6,9 +6,10 @@ import {
   Delete,
   Patch,
   Body,
+  UseGuards,
 } from '@nestjs/common';
 import { BaseService } from './base.service';
-import { ApiBody } from '@nestjs/swagger';
+import { AuthGuard } from '../auth/auth.guard';
 
 @Controller()
 export class BaseController<T> {
@@ -19,21 +20,25 @@ export class BaseController<T> {
     return this.baseService.findAll();
   }
 
+  @UseGuards(AuthGuard)
   @Get(':id')
   async findOne(@Param('id') id): Promise<T> {
     return this.baseService.findOneById(id);
   }
 
+  @UseGuards(AuthGuard)
   @Post()
   async create(@Body() body: any): Promise<T> {
     return this.baseService.create(body);
   }
 
+  @UseGuards(AuthGuard)
   @Patch(':id')
   async update(@Param('id') id, @Body() body: any): Promise<T> {
     return this.baseService.update(id, body);
   }
 
+  @UseGuards(AuthGuard)
   @Delete(':id')
   async remove(@Param('id') id: string) {
     try {
