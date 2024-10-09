@@ -1,6 +1,5 @@
 import { IsInt, IsNotEmpty, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { Transform } from 'class-transformer';
 
 export class PizzaDto {
   @IsString()
@@ -10,12 +9,14 @@ export class PizzaDto {
     type: String,
   })
   name: string;
+
+  @IsString()
   @ApiProperty({
-    description: 'pizzas ingredients',
+    description: 'Pizza ingredients',
     default: 'muzza',
   })
-  @IsString()
   ingredients: string;
+
   @ApiProperty({
     description: 'pizza s price',
     minimum: 1,

@@ -6,24 +6,19 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToMany,
-  JoinTable,
 } from 'typeorm';
-import { Ingredients } from '../ingredients/ingredients.entity';
+import { Pizza } from '../pizza/pizza.entity';
 
-@Entity('pizzas')
-export class Pizza extends BaseEntity {
+@Entity('ingredients')
+export class Ingredients extends BaseEntity {
   @PrimaryGeneratedColumn('increment')
   id: number;
 
   @Column({ type: 'varchar', unique: true, length: 25 })
   name: string;
 
-  @ManyToMany(() => Ingredients, (ingredient) => ingredient.pizzas, {
-    cascade: true,
-  })
-  @JoinTable({ name: 'pizza_ingredients' })
-  ingredients: Ingredients[];
-
+  @ManyToMany(() => Pizza, (pizza) => pizza.ingredients)
+  pizzas: Pizza[]; // Relación inversa con Pizza
   @CreateDateColumn({ type: 'timestamp', name: 'created_at' })
   createdAt: Date;
 

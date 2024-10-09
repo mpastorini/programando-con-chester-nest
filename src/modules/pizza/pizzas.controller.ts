@@ -11,9 +11,4 @@ export class PizzasController extends BaseController<Pizza> {
   constructor(private readonly pizzaService: PizzaService) {
     super(pizzaService);
   }
-
-  @Post()
-  create(@Body() pizzaDto: PizzaDto) {
-    return this.pizzaService.create(pizzaDto);
-  }
 }

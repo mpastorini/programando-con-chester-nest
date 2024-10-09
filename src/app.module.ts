@@ -9,6 +9,8 @@ import { Pizza } from './modules/pizza/pizza.entity';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { User } from './modules/users/user.entity';
+import { IngredientsModule } from './modules/ingredients/ingredients.module';
+import { Ingredients } from './modules/ingredients/ingredients.entity';
 
 @Module({
   imports: [
@@ -19,13 +21,14 @@ import { User } from './modules/users/user.entity';
       username: 'esteban',
       password: 'qwe123',
       database: 'pizza',
-      entities: [Pizza, User],
+      entities: [Pizza, User, Ingredients],
       synchronize: true,
       migrations: ['src/migrations/.ts'],
     }),
     PizzaModule,
     AuthModule,
     UsersModule,
+    IngredientsModule,
   ],
   controllers: [AppController, PizzasController, IngredientsController],
   providers: [AppService],
