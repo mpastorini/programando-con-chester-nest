@@ -4,11 +4,17 @@ import { Pizza } from './pizza.entity';
 import { PizzasController } from 'src/modules/pizza/pizzas.controller';
 import { PizzaService } from './pizza.service';
 import { AuthGuard } from '../auth/auth.guard';
+import { IngredientsController } from '../ingredients/ingredients.controller';
+import { IngredientsService } from '../ingredients/ingredients.service';
+import { Ingredients } from '../ingredients/ingredients.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Pizza])],
+  imports: [
+    TypeOrmModule.forFeature([Pizza]),
+    TypeOrmModule.forFeature([Ingredients]),
+  ],
   controllers: [PizzasController],
-  providers: [PizzaService],
+  providers: [PizzaService, IngredientsService],
   exports: [PizzaService],
 })
 export class PizzaModule {}

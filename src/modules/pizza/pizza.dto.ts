@@ -1,4 +1,4 @@
-import { IsInt, IsNotEmpty, IsString } from 'class-validator';
+import { IsArray, IsInt, IsNotEmpty, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class PizzaDto {
@@ -27,10 +27,15 @@ export class PizzaDto {
 }
 
 export class CreatePizzaDto {
+  @IsString()
+  @IsNotEmpty()
+  @ApiProperty({ description: 'Name of the pizza', type: String })
   name: string;
-  price: number;
-}
 
+  @IsArray()
+  @ApiProperty({ description: 'List of ingredient IDs', type: [Number] })
+  ingredientIds: number[];
+}
 export class UpdatePizzaDto {
   name?: string;
   price?: number;

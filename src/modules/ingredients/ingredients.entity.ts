@@ -19,6 +19,7 @@ export class Ingredients extends BaseEntity {
 
   @ManyToMany(() => Pizza, (pizza) => pizza.ingredients)
   pizzas: Pizza[]; // Relación inversa con Pizza
+
   @CreateDateColumn({ type: 'timestamp', name: 'created_at' })
   createdAt: Date;
 
