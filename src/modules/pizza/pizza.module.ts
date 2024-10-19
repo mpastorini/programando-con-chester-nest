@@ -3,8 +3,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Pizza } from './pizza.entity';
 import { PizzasController } from 'src/modules/pizza/pizzas.controller';
 import { PizzaService } from './pizza.service';
-import { AuthGuard } from '../auth/auth.guard';
-import { IngredientsController } from '../ingredients/ingredients.controller';
 import { IngredientsService } from '../ingredients/ingredients.service';
 import { Ingredients } from '../ingredients/ingredients.entity';
 

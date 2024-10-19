@@ -31,4 +31,27 @@ export class PizzaService extends BaseService<Pizza> {
 
     return this.pizzaRepository.save(pizza);
   }
+  async updatePizzaIngredients(
+    pizzaId: number,
+    ingredientIds: number[]
+  ): Promise<Pizza> {
+    const pizza = await this.pizzaRepository.findOne({
+      where: { id: pizzaId },
+      relations: ['ingredients'], // Cargar los ingredientes actuales
+    });
+
+    if (!pizza) {
+      throw new Error('Pizza not found');
+    }
+
+    // Buscar los nuevos ingredientes por sus IDs
+    const ingredients = await this.ingredientsRepository.find({
+      where: { id: In(ingredientIds) },
+    });
+
+    // Actualizar la pizza con los nuevos ingredientes
+    pizza.ingredients = ingredients;
+
+    return this.pizzaRepository.save(pizza); // Guardar los cambios
+  }
 }
