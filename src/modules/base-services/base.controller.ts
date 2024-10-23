@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { BaseService } from './base.service';
 import { AuthGuard } from '../auth/auth.guard';
+import { JwtModule } from '@nestjs/jwt';
 
 @Controller()
 export class BaseController<T> {

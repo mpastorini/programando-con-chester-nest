@@ -102,3 +102,7 @@ VALIDATION en techniques, pizza => que no pase .caca, manejo de responses,
 https://docs.nestjs.com/techniques/validation
 
 https://docs.nestjs.com/openapi/introduction
+
+
+
+JWT modificar para que dure mas en produccion y menos si esta desplegado

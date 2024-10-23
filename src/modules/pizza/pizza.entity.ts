@@ -18,9 +18,7 @@ export class Pizza extends BaseEntity {
   @Column({ type: 'varchar', unique: true, length: 25 })
   name: string;
 
-  @ManyToMany(() => Ingredients, (ingredient) => ingredient.pizzas, {
-    cascade: true,
-  })
+  @ManyToMany(() => Ingredients, (ingredient) => ingredient.pizzas)
   @JoinTable({ name: 'pizza_ingredients' })
   ingredients: Ingredients[];
 
